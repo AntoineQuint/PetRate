@@ -1,0 +1,36 @@
+#app-container {
+    display: flex;
+    width: 100%;
+    min-height: 90vh;
+    transition: all 0.3s ease-in-out;
+    /* border: 20px solid green */
+}
+
+#main-section {
+    flex-grow: 1;
+    width: 100%;
+    transition: margin-left 0.3s ease-in-out;
+    background-color: #dbc68c;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#main-content{
+    padding-top: 10vh;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width:100%
+}
+.center-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+/* *{
+    box-sizing: border-box;
+} */

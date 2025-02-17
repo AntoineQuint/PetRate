@@ -1,0 +1,23 @@
+#pets{
+    width: 100%;
+    /* border: 3px solid greenyellow; */
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.pet{
+    margin: 10px 10px;
+    width: 30%;
+    border-radius: 30px;
+    background-color: #9b672b;
+    /* border: 3px solid green; */
+    text-align: center;
+}
+
+.pet img {
+    width: 50%;
+    justify-self: center;
+
+}
