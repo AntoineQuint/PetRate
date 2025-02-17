@@ -30,7 +30,7 @@ export default function EditPet(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.updatePet(petId, updatedPet);
+    props.updatePet(updatedPet);
     navigate(`/pets/${petId}`); 
   };
 

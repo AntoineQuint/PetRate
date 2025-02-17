@@ -26,10 +26,6 @@ export default function AddNewPet({ setNewPet }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newPet = {
-      id: Date.now().toString(),
-      ...formData
-    };
 
     setNewPet((prevPets) => [newPet, ...prevPets]);
     

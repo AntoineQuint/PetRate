@@ -48,6 +48,7 @@ function App() {
     const newPets = petsToDisplay.map((pet) =>
       pet.key === petId ? { ...pet, ...updatedPet } : pet
     );
+    
     setPetsToDisplay(newPets);
   };
 
