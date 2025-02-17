@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import "./AddNewPet.css"
 export default function AddNewPet({ setNewPet }) {
 
@@ -28,7 +29,6 @@ export default function AddNewPet({ setNewPet }) {
 
 
     setNewPet((prevPets) => [newPet, ...prevPets]);
-    
     setFormData({
       name: "",
       description:"",
@@ -39,7 +39,9 @@ export default function AddNewPet({ setNewPet }) {
     })
 
   };
-
+  axios.put("https://petrate-default-rtdb.europe-west1.firebasedatabase.app/petData.json", formData)
+        .then(response => console.log(sucess) ) 
+        .catch(e => console.log(error))
   return (
     <form id="addForm" onSubmit={handleSubmit}>
       <h2>Add Your Pet</h2>
