@@ -24,7 +24,8 @@
       "owner": "Antoine",
       "specie": "Cat",
       "age": "7",
-      "picture": ""
+      "picture": "",
+      "like": 0
     },
     {
       "id": "4",
@@ -34,14 +35,5 @@
       "specie": "Cow",
       "age": "11",
       "picture": "https://media.istockphoto.com/id/1282514444/photo/cow-udder-large-and-full-and-with-horns-in-the-green-pasture-and-a-blue-sky.jpg?s=612x612&w=0&k=20&c=a2TuO1u4H4wKW7aSizBh7Df8CLA70MEPTcadLfc35bk="
-    },
-    {
-      "id": "5",
-      "name": "Poutine",
-      "description": "A big fluffy grumpy cat who hates people but love cuddles",
-      "owner": "Antoine",
-      "specie": "Cat",
-      "age": "7",
-      "picture": ""
     }
   ]

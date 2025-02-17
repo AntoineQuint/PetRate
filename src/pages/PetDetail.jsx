@@ -4,11 +4,11 @@ export default function PetDetail(props) {
   const { petId } = useParams();
   console.log(props)
   const pet = props.petArr.find((element) => {
-    return element.id === petId;
+    return element.key === petId;
   });
   
   return (
-    <div key={pet.id} className="home">
+    <div key={pet.key} className="home">
       <div className="pet" style={{ width: "60%" }}>
         <ul>
           <li>Name: {pet.name}</li>
@@ -22,7 +22,7 @@ export default function PetDetail(props) {
             <button>Back</button>
           </Link>
           {/* Edit Button */}
-          <Link to={`/edit/${pet.id}`}>
+          <Link to={`/edit/${pet.key}`}>
             <button>Edit</button>
           </Link>
         </ul>

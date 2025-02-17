@@ -6,27 +6,47 @@ import ShowPet from "./component/ShowPet.jsx";
 import PetDetail from "./pages/PetDetail.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 
-import petArr from "./assets/json/ItemsList.json"
+
+//import petArr from "./assets/json/ItemsList.json"
 
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "./App.css"
 
 
 
 function App() {
-  const [petsToDisplay, setPetsToDisplay] = useState(petArr);
 
+  const [petsToDisplay, setPetsToDisplay] = useState([]);
+  const [tempObj, setTempObj] = useState({});
+  const base_url = 'https://petrate-default-rtdb.europe-west1.firebasedatabase.app/';
+  useEffect(() => {
+    axios.get(`${base_url}/petData.json`)
+      .then(response => {
+        setTempObj(response.data);
+      })
+      .catch((e) => console.log('data not found: ', e));
+  }, []);
+  
+  useEffect(() => {
+    if (Object.keys(tempObj).length > 0) {
+      const arrayOfObjects = Object.keys(tempObj).map(key => ({ key: key,  ...tempObj[key], }));
+      setPetsToDisplay(arrayOfObjects);
+    }
+  }, [tempObj]);
+  
 
+ 
 
   const removePet = (petId) => {
-    const newPets = petsToDisplay.filter((el) => el.id !== petId);
+    const newPets = petsToDisplay.filter((el) => el.key !== petId);
     setPetsToDisplay(newPets);
   };
 
   const updatePet = (petId, updatedPet) => {
     const newPets = petsToDisplay.map((pet) =>
-      pet.id === petId ? { ...pet, ...updatedPet } : pet
+      pet.key === petId ? { ...pet, ...updatedPet } : pet
     );
     setPetsToDisplay(newPets);
   };

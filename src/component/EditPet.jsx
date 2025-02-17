@@ -5,7 +5,7 @@ export default function EditPet(props) {
   const { petId } = useParams();
   const navigate = useNavigate();
 
-  const pet = props.petArr.find((pet) => pet.id === petId);
+  const pet = props.petArr.find((pet) => pet.key === petId);
   
   if (!pet) {
     navigate("/");
