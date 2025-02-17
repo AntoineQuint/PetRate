@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
 
 export default function EditPet(props) {
   const { petId } = useParams();
@@ -30,6 +31,13 @@ export default function EditPet(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios
+    .put(
+      
+      `https://petrate-default-rtdb.europe-west1.firebasedatabase.app/petData/${petId}.json`, updatedPet
+    )
+    .then((response) => console.log("Success", response))
+    .catch((error) => console.log("Error", error)); 
     props.updatePet(updatedPet);
     navigate(`/pets/${petId}`); 
   };
