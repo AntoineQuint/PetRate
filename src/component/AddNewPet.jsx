@@ -12,36 +12,40 @@ export default function AddNewPet({ setNewPet }) {
     picture:"",
   })
 
-  const handleChange =(event)=>{
-    const {value, name, type, checked} = event.target;
-    
-    setFormData(val =>({
+  const handleChange = (event) => {
+    const { value, name, type, checked } = event.target;
+
+    setFormData((val) => ({
       ...val,
-      [name]: type === "checkbox"? checked: value
+      [name]: type === "checkbox" ? checked : value,
     }));
-
-   
-  }
-
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    const newPet = { ...formData };
 
     setNewPet((prevPets) => [newPet, ...prevPets]);
+    axios
+    .post(
+      "https://petrate-default-rtdb.europe-west1.firebasedatabase.app/petData.json", newPet
+    )
+    .then((response) => console.log("Success", response))
+    .catch((error) => console.log("Error", error));
     setFormData({
       name: "",
-      description:"",
-      owner:"",
-      specie:"",
-      age:"",
-      picture:"",
-    })
+      description: "",
+      owner: "",
+      specie: "",
+      age: "",
+      picture: "",
+    });
+
+
 
   };
-  axios.put("https://petrate-default-rtdb.europe-west1.firebasedatabase.app/petData.json", formData)
-        .then(response => console.log(sucess) ) 
-        .catch(e => console.log(error))
+
+
   return (
     <form id="addForm" onSubmit={handleSubmit}>
       <h2>Add Your Pet</h2>

@@ -1,6 +1,5 @@
 [
     {
-      "id": "1",
       "name": "Bill",
       "description": "A really nice dog",
       "owner": "Mike",
@@ -9,7 +8,6 @@
       "picture": "https://images.theconversation.com/files/625049/original/file-20241010-15-95v3ha.jpg?ixlib=rb-4.1.0&rect=12%2C96%2C2671%2C1335&q=45&auto=format&w=668&h=324&fit=crop"
     },
     {
-      "id": "2",
       "name": "Steven",
       "description": "A very calm horse",
       "owner": "Juan",
@@ -18,7 +16,6 @@
       "picture": "https://i.imgflip.com/4ftwez.png"
     },
     {
-      "id": "3",
       "name": "Poutine",
       "description": "A big fluffy grumpy cat who hates people but love cuddles",
       "owner": "Antoine",
@@ -28,7 +25,6 @@
       "like": 0
     },
     {
-      "id": "4",
       "name": "Moo",
       "description": "A cow that never stop talking",
       "owner": "Joe",
