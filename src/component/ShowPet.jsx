@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./ShowPet.css"
-export default function ShowPets({petArr, callbackRemovePet}){
+export default function ShowPets({petArr, callbackRemovePet, callLikes}){
     return(
         <div id="pets">
             {petArr.map((element) => {
@@ -18,6 +18,7 @@ export default function ShowPets({petArr, callbackRemovePet}){
                     <button onClick={() => callbackRemovePet(element.key)}>
                         Delete
                     </button>
+                    <button onClick={() => callLikes(element.key)}>{element.likes}</button>
                     </ul>
                 </div>
                 );

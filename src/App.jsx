@@ -64,6 +64,26 @@ function App() {
     setPetsToDisplay(newPets);
   };
 
+  const petLikes = (petKey) => {
+    const id = petsToDisplay.find(val => val.key === petKey)
+    if (id) {
+      const updatedPet = {
+        ...id,
+        likes: id.likes + 1,  // Increment likes by 1
+      };
+      console.log(id.key)
+    }
+    axios.patch(`${base_url}/${id.key}.json`,updatePet)
+    .then(response => {
+      console.log('Success:', response);
+      // Optionally update local state to reflect the changes
+      setPetsToDisplay(prevPets => 
+        prevPets.map(p => p.key === petKey ? updatedPet : p)
+      );
+    })
+    .catch(e => console.log('failed'))
+  }
+
   return (
     <div id="app-container">
 
@@ -82,7 +102,7 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
             <Route
               path="/CurrentPets"
-              element={<ShowPet petArr={petsToDisplay} callbackRemovePet={removePet} />}
+              element={<ShowPet petArr={petsToDisplay} callbackRemovePet={removePet} callLikes={petLikes} />}
             />
             <Route
               path="/edit/:petId"
