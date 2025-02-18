@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import "./AddNewPet.css"
 export default function AddNewPet({ setNewPet }) {
@@ -32,6 +32,7 @@ export default function AddNewPet({ setNewPet }) {
     )
     .then((response) => console.log("Success", response))
     .catch((error) => console.log("Error", error));
+    
     setFormData({
       name: "",
       description: "",

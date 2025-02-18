@@ -19,15 +19,17 @@ import "./App.css"
 function App() {
 
   const [petsToDisplay, setPetsToDisplay] = useState([]);
+  const [refreshTrigger, setRefreshTrigger] = useState(0)
   const [tempObj, setTempObj] = useState({});
   const base_url = 'https://petrate-default-rtdb.europe-west1.firebasedatabase.app/';
   useEffect(() => {
     axios.get(`${base_url}/petData.json`)
       .then(response => {
         setTempObj(response.data);
+        setRefreshTrigger(prev => prev +1)
       })
       .catch((e) => console.log('data not found: ', e));
-  }, []);
+  }, [refreshTrigger]);
   
   useEffect(() => {
     if (Object.keys(tempObj).length > 0) {
@@ -40,8 +42,18 @@ function App() {
  
 
   const removePet = (petId) => {
-    const newPets = petsToDisplay.filter((el) => el.key !== petId);
-    setPetsToDisplay(newPets);
+    axios
+    .delete(
+      `https://petrate-default-rtdb.europe-west1.firebasedatabase.app/petData/${petId}.json`
+    )
+    .then(() => {
+      const newPets = petsToDisplay.filter((pet) => pet.key !== petId);
+      setPetsToDisplay(newPets);
+    })
+    .catch((error) => {
+      console.log("Error removing pet: ", error);
+    });
+
   };
 
   const updatePet = (petId, updatedPet) => {
