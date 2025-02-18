@@ -65,24 +65,48 @@ function App() {
   };
 
   const petLikes = (petKey) => {
-    const id = petsToDisplay.find(val => val.key === petKey)
-    if (id) {
+    
+    const pet = petsToDisplay.find(p => p.key === petKey);
+  
+    if (pet) {
+     
       const updatedPet = {
-        ...id,
-        likes: id.likes + 1,  // Increment likes by 1
+        ...pet,
+        likes: pet.likes + 1 
       };
-      console.log(id.key)
-    }
-    axios.patch(`${base_url}/${id.key}.json`,updatePet)
-    .then(response => {
-      console.log('Success:', response);
-      // Optionally update local state to reflect the changes
-      setPetsToDisplay(prevPets => 
-        prevPets.map(p => p.key === petKey ? updatedPet : p)
+  
+      setPetsToDisplay(prevPets =>
+        prevPets.map(p =>
+          p.key === petKey ? updatedPet : p  
+        )
       );
-    })
-    .catch(e => console.log('failed'))
-  }
+  
+      
+      const updatedLike = {
+        likes: updatedPet.likes  
+      };
+  
+      
+      axios.patch(`${base_url}/petData/${petKey}.json`, updatedLike)
+        .then(response => {
+          console.log('Likes incremented successfully:', response);
+        })
+        .catch(error => {
+          console.log('Error incrementing likes:', error);
+  
+          
+          setPetsToDisplay(prevPets =>
+            prevPets.map(p =>
+              p.key === petKey ? pet : p  
+            )
+          );
+        });
+    }
+  };
+  
+  
+  
+  
 
   return (
     <div id="app-container">
@@ -93,7 +117,7 @@ function App() {
           <Routes>
             <Route
               path="/"
-              element={<Home petArr={petsToDisplay} callbackRemovePet={removePet} setNewPet={setPetsToDisplay} />}
+              element={<Home petArr={petsToDisplay} callbackRemovePet={removePet} setNewPet={setPetsToDisplay} callLikes={petLikes} />}
             />
             <Route
               path="/pets/:petId"
