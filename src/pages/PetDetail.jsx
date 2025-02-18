@@ -17,6 +17,7 @@ export default function PetDetail(props) {
           <li>Owner: {pet.owner}</li>
           <li>Specie: {pet.specie}</li>
           <li>Age: {pet.age}</li>
+          <li>Likes: {pet.likes}</li>
           <br />
           <Link to="/">
             <button>Back</button>

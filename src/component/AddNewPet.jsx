@@ -9,7 +9,8 @@ export default function AddNewPet({ setNewPet }) {
     owner:"",
     specie:"",
     age:"",
-    picture:"",
+    likes:0,
+    picture:""
   })
 
   const handleChange = (event) => {
@@ -108,6 +109,7 @@ export default function AddNewPet({ setNewPet }) {
         />
 
       </label>
+     
 
       <label>
         Picture:

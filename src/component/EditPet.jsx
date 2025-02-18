@@ -24,6 +24,7 @@ export default function EditPet(props) {
     specie: pet.specie,
     age: pet.age,
     picture: pet.picture,
+    likes: pet.likes
   });
 
   const handleChange = (e) => {
