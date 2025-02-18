@@ -33,10 +33,17 @@ function App() {
   
   useEffect(() => {
     if (Object.keys(tempObj).length > 0) {
-      const arrayOfObjects = Object.keys(tempObj).map(key => ({ key: key,  ...tempObj[key], }));
-      setPetsToDisplay(arrayOfObjects);
+    
+      const arrayOfObjects = Object.keys(tempObj).map(key => ({ key: key, ...tempObj[key] }));
+  
+      
+      const sortedPets = arrayOfObjects.sort((a, b) => b.likes - a.likes);
+  
+     
+      setPetsToDisplay(sortedPets);
     }
   }, [tempObj]);
+  
   
 
  
