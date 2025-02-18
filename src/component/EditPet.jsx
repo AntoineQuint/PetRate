@@ -1,15 +1,20 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function EditPet(props) {
   const { petId } = useParams();
   const navigate = useNavigate();
-
   const pet = props.petArr.find((pet) => pet.key === petId);
-  
+
+  useEffect(() => {
+    if (!pet) {
+      navigate("/");
+    }
+  }, [pet, navigate]);
+
   if (!pet) {
-    navigate("/");
+    return <div>Loading...</div>;
   }
 
   const [updatedPet, setUpdatedPet] = useState({
@@ -32,14 +37,18 @@ export default function EditPet(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-    .put(
-      
-      `https://petrate-default-rtdb.europe-west1.firebasedatabase.app/petData/${petId}.json`, updatedPet
-    )
-    .then((response) => console.log("Success", response))
-    .catch((error) => console.log("Error", error)); 
-    props.updatePet(updatedPet);
-    navigate(`/pets/${petId}`); 
+      .put(
+        `https://petrate-default-rtdb.europe-west1.firebasedatabase.app/petData/${petId}.json`,
+        updatedPet
+      )
+      .then((response) => {
+        console.log("Success", response);
+      })
+      .catch((error) => {
+        console.log("Error", error);
+      });
+    props.updatePet(petId, updatedPet);
+    navigate(`/pets/${petId}`);
   };
 
   return (
@@ -72,6 +81,7 @@ export default function EditPet(props) {
           onChange={handleChange}
         />
         <br />
+
         <label>Specie:</label>
         <input
           type="text"
@@ -80,15 +90,15 @@ export default function EditPet(props) {
           onChange={handleChange}
         />
         <br />
+
         <label>Age:</label>
         <input
-          type="numbers"
+          type="number"
           name="age"
           value={updatedPet.age}
           onChange={handleChange}
         />
         <br />
-
 
         <label>Picture:</label>
         <input
