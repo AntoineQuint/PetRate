@@ -30,7 +30,7 @@
     flex-direction: column; 
 }
 
-.petImages {
+.petImage {
     width: 50%;
     justify-self: center; 
 }
