@@ -10,7 +10,7 @@ export default function PetDetail(props) {
   return (
     <div key={pet.key} className="home">
       <div className="pet" style={{ width: "60%" }}>
-        <ul>
+        <ul className="flexul">
           <li>Name: {pet.name}</li>
           <img src={pet.picture} alt="A picture of this pet" />
           <li>Description: {pet.description}</li>

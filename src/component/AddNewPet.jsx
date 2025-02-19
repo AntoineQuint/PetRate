@@ -50,7 +50,7 @@ export default function AddNewPet({ setNewPet }) {
 
   return (
     <form id="addForm" onSubmit={handleSubmit}>
-      <h2>Add Your Pet</h2>
+      <h2>Feel free to add your little pet to the list by filling this form !</h2>
       <label>
         Name:
         <input

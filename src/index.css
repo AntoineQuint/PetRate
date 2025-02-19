@@ -40,20 +40,7 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #6e6e6e;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -74,9 +61,8 @@ ul {
 }
 
 ul li {
-  background: #9b672b;
   padding: 0.8rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0.5rem;
   border-radius: 5px;
 }
 
@@ -87,8 +73,9 @@ button {
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  margin-top: 1rem;
+  margin: 1rem;
   border-radius: 5px;
+  display:flex;
 }
 
 button:hover {
@@ -106,15 +93,4 @@ button:hover {
   align-items: center;
   justify-content: space-around;
 }
-
-
-/* form span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-top: 10px;
-  width: 100%;
-  font-size: 1.2rem;
-  font-weight: 600;
-} */
 

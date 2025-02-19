@@ -1,8 +1,38 @@
-.pet{
-    margin: 10px 10px;
-    width: 30%;
+.pet {
+    margin: 10px;
+    width: 30%; /* Default width for medium screens */
     border-radius: 30px;
-    background-color: #9b672b;
-    /* border: 3px solid green; */
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box; /* Ensure padding and margin don't affect layout */
+}
+button {
+    display: flex;
+    justify-content: center;
+
+}
+/* For screens 1200px wide or smaller */
+@media (max-width: 1200px) {
+    .pet {
+        width: 45%; /* On smaller screens (e.g., large tablets), each pet takes 45% width */
+    }
+}
+
+/* For screens 768px wide or smaller (tablets and large phones) */
+@media (max-width: 768px) {
+    .pet {
+        width: 80%; /* On smaller screens, each pet takes 80% width */
+        margin: 5px 0; /* Reduce margin to fit content better */
+    }
+}
+
+/* For very small screens (480px wide or smaller, e.g., smartphones) */
+@media (max-width: 480px) {
+    .pet {
+        width: 100%; /* Pet takes up the full width on tiny screens */
+        margin: 10px 0; /* Increase margin for better spacing */
+    }
 }

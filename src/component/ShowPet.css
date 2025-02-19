@@ -1,23 +1,140 @@
-#pets{
+#pets {
     width: 100%;
-    /* border: 3px solid greenyellow; */
-    justify-content: center;
     display: flex;
-    flex-wrap: wrap;
-
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
 }
 
-.pet{
-    margin: 10px 10px;
+#name{
+    font-size: 2em;
+}
+
+.pet {
+    margin: 10px;
     width: 30%;
-    border-radius: 30px;
-    background-color: #9b672b;
-    /* border: 3px solid green; */
+    border-radius: 30%;
+    background-color: #34643c;
+    border: 3px solid rgb(0, 0, 0);
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+}
+.flexul{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+}
+
+.petImages {
+    width: 50%;
+    justify-self: center; 
+}
+.heart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;  /* Ensure it takes up full width of button */
+    height: 50%; /* Ensure it takes up full height of button */
+}
+button {
+    width: 40%;
+    background: #72ac5c;
+    border: 2px solid #232931;
+    padding: 1.rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+button:hover {
+    background: #dd8c13;
+}
 
-.pet img {
-    width: 50%;
-    justify-self: center;
 
+
+@media (max-width: 1200px) {
+    .pet {
+        width: 45%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .pet {
+        width: 80%;
+        margin: 5px;
+    }
+
+    #topnav {
+        flex-direction: column;
+        height: auto; 
+    }
+
+    #topnav h1 {
+        font-size: 1.5rem; 
+    }
+    
+    button {
+        font-size: 0.9rem; 
+        padding: 0.5rem 1rem; 
+    }
+
+    #addForm input, select, textarea {
+        min-width: 80%; 
+    }
+
+    #addForm button {
+        max-width: 50%; 
+    }
+
+    button .heart {
+        width: 20%; 
+    }
+}
+
+@media (max-width: 480px) {
+
+    .pet {
+        width: 100%; 
+        margin: 10px 0; 
+    }
+
+    #topnav {
+        padding: 10px 0;
+    }
+
+    #topnav h1 {
+        font-size: 1.2rem; 
+    }
+
+    button {
+        font-size: 0.8rem; 
+        padding: 0.4rem 1rem; 
+    }
+
+    #addForm input, select, textarea {
+        min-width: 90%; 
+    }
+
+    #addForm button {
+        max-width: 70%; 
+    }
+
+    button .heart {
+        width: 25%; 
+    }
 }

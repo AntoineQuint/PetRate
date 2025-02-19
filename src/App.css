@@ -10,7 +10,7 @@
     flex-grow: 1;
     width: 100%;
     transition: margin-left 0.3s ease-in-out;
-    background-color: #dbc68c;
+    background-color: #fcf7e9;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
