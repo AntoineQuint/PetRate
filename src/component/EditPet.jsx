@@ -110,8 +110,9 @@ export default function EditPet(props) {
         />
         <br />
 
-        <button type="submit">Save Changes</button>
+        <button id="editButton" type="submit">Save Changes</button>
       </form>
     </div>
+
   );
 }
