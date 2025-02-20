@@ -30,8 +30,10 @@
 }
 
 .petImage {
-    width: 50%;
     justify-self: center; 
+    width: 30%;
+    height: auto;
+    object-fit: contain;
 }
 .heart {
     display: flex;
