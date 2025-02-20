@@ -94,3 +94,9 @@ button:hover {
   justify-content: space-around;
 }
 
+.searchBar{
+  padding: 2rem;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -19,16 +19,17 @@ import "./App.css"
 function App() {
 
   const [petsToDisplay, setPetsToDisplay] = useState([]);
-  
+  const [refreshTrigger, setRefreshTrigger] = useState(0)
   const [tempObj, setTempObj] = useState({});
   const base_url = 'https://petrate-default-rtdb.europe-west1.firebasedatabase.app/';
   useEffect(() => {
     axios.get(`${base_url}/petData.json`)
       .then(response => {
         setTempObj(response.data);
+        setRefreshTrigger(prev => prev +1)
       })
       .catch((e) => console.log('data not found: ', e));
-  }, []);
+  }, [refreshTrigger]);
   
   useEffect(() => {
     if (Object.keys(tempObj).length > 0) {
